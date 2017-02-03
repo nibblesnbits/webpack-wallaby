@@ -6,11 +6,12 @@ module.exports = function (wallaby) {
     // webpack options
 
     externals: {
-      // Use external version of React instead of rebuilding it
-      "react": "React"
+      'react/addons': true,
+      'react/lib/ExecutionEnvironment': true,
+      'react/lib/ReactContext': 'window'
     },
     resolve: {
-      extensions: ['.js']
+      extensions: ['', '.js']
     }
   });
 
@@ -18,6 +19,7 @@ module.exports = function (wallaby) {
     files: [
       { pattern: 'node_modules/react/dist/react-with-addons.js', instrument: false },
       { pattern: 'src/**/*.js', load: false, instrument: true },
+      { pattern: 'src/**/*.json', load: false, instrument: true },
       { pattern: 'src/**/*.spec.js', ignore: true },
     ],
 
