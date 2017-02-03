@@ -10,7 +10,7 @@ module.exports = function (wallaby) {
       "react": "React"
     },
     resolve: {
-      extensions: ['.js']
+      extensions: ['', '.js']
     }
   });
 
