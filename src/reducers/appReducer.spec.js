@@ -4,7 +4,7 @@ import * as actions from '../actions/dataActions';
 
 describe('App Reducer', () => {
 
-  it ('should add message on showMessage()', () => {
+  it ('should set data on setData()', () => {
     const initialState = {
       data: undefined
     };
@@ -14,5 +14,20 @@ describe('App Reducer', () => {
     const newState = appReducer(initialState, action);
 
     expect(newState.data).to.equal('test');
+  });
+
+  it ('should not modify state on unmatched action', () => {
+    const initialState = {
+      data: undefined
+    };
+
+    const action = {
+      type: 'test',
+      data: 'test',
+    };
+
+    const newState = appReducer(initialState, action);
+
+    expect(newState).to.deep.equal(initialState);
   });
 });
